@@ -33,6 +33,20 @@ const DonorForm = () => {
   const handleSubmit = async (values: any) => {
     try {
       const { isChecked, ...dataToSend } = values;
+      if (!dataToSend.latitude || !dataToSend.longitude) {
+        if (typeof navigator !== 'undefined' && navigator.geolocation) {
+          await new Promise<void>((resolve) => {
+            navigator.geolocation.getCurrentPosition(
+              (pos) => {
+                (dataToSend as any).latitude = pos.coords.latitude;
+                (dataToSend as any).longitude = pos.coords.longitude;
+                resolve();
+              },
+              () => resolve()
+            );
+          });
+        }
+      }
 
       const response = await fetch("/api/DonorForm", {
         method: "POST",
@@ -64,6 +78,8 @@ const DonorForm = () => {
       city: "",
       gender: "",
       isChecked: false,
+      latitude: undefined as any,
+      longitude: undefined as any,
     },
     validationSchema,
     onSubmit: handleSubmit,

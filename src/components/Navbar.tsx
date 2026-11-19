@@ -48,6 +48,12 @@ const Sidebar = ({ isOpen, onClose }: any) => {
               <li className="mb-4 hover:text-red-800 transition-colors duration-300">
                 <Link href="/OrgForm">Register Organization</Link>
               </li>
+              <li className="mb-4 hover:text-red-800 transition-colors duration-300">
+                <Link href="/Map">Live Map</Link>
+              </li>
+              <li className="mb-4 hover:text-red-800 transition-colors duration-300">
+                <Link href="/SOS">Emergency SOS</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -62,9 +68,12 @@ const Sidebar = ({ isOpen, onClose }: any) => {
 const Navbar = () => {
   const { userId } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
+    // Set initial width only on client side
+    setWindowWidth(window.innerWidth);
+    
     function handleResize() {
       setWindowWidth(window.innerWidth);
     }
@@ -89,7 +98,7 @@ const Navbar = () => {
             <BiDonateBlood size={30} />
           </Link>
         </div>
-        {windowWidth <= 768 && userId && (
+        {windowWidth > 0 && windowWidth <= 768 && userId && (
           <button
             className="text-red-800 focus:outline-none"
             onClick={handleMobileUpdate}
@@ -109,7 +118,7 @@ const Navbar = () => {
             </svg>
           </button>
         )}
-        {windowWidth <= 768 || !userId ? null : (
+        {(windowWidth > 0 && windowWidth <= 768) || !userId ? null : (
           <div className="">
             <ul className="p-4 flex">
               <li className="mr-4  hover:text-red-800 transition-colors duration-300">
@@ -118,8 +127,14 @@ const Navbar = () => {
               <li className="mr-4 hover:text-red-800 transition-colors duration-300">
                 <Link href="/DonorForm">Register Donor</Link>
               </li>
-              <li className="hover:text-red-800 transition-colors duration-300">
+              <li className="mr-4 hover:text-red-800 transition-colors duration-300">
                 <Link href="/OrgForm">Register Organization</Link>
+              </li>
+              <li className="mr-4 hover:text-red-800 transition-colors duration-300">
+                <Link href="/Map">Live Map</Link>
+              </li>
+              <li className="hover:text-red-800 transition-colors duration-300">
+                <Link href="/SOS">Emergency SOS</Link>
               </li>
             </ul>
           </div>
@@ -156,7 +171,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-      {windowWidth <= 768 && (
+      {windowWidth > 0 && windowWidth <= 768 && (
         <Sidebar isOpen={menuOpen} onClose={handleCloseSidebar} />
       )}
     </>

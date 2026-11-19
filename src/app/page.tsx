@@ -14,8 +14,14 @@ const Page = () => {
       <Hero />
       {isNotFindBloodPage && (
         <>
-          <Script src="https://cdn.botpress.cloud/webchat/v2/inject.js" />
-          <Script src="https://mediafiles.botpress.cloud/2f8d7521-9c5a-498e-b78d-79c034fbb577/webchat/v2/config.js" defer />
+          <Script 
+            src="https://cdn.botpress.cloud/webchat/v2/inject.js" 
+            strategy="lazyOnload"
+          />
+          <Script 
+            src="https://mediafiles.botpress.cloud/2f8d7521-9c5a-498e-b78d-79c034fbb577/webchat/v2/config.js" 
+            strategy="lazyOnload"
+          />
         </>
       )}
       <Footer />

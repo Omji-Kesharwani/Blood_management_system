@@ -14,28 +14,19 @@ The Blood Donation Project is an initiative aimed at connecting individuals in n
 
 ## 🚀 Quick start
 
-Contributions are welcome! If you have any ideas, suggestions, or bug fixes, please open an [issue](https://github.com/Saurav-Pant/Blood-Donation-Project/issues/new/choose) or submit a pull request. Make sure to follow the project's code of conduct.
+Contributions are welcome! If you have any ideas, suggestions, or bug fixes, please open an [issue](https://github.com/Omji-Kesharwani/Blood-Donation-Project/issues/new/choose) or submit a pull request. Make sure to follow the project's code of conduct.
 
 > **Note**: If you are new to open source contributions, you can refer to [this](https://opensource.guide/how-to-contribute/) guide by GitHub.
 
-> **Warning**: Please do not spam the repository with unnecessary PRs. Make sure to follow the project's [Code of Conduct](https://github.com/Saurav-Pant/Blood-Donation-Project/blob/main/CODE_OF_CONDUCT.md).
+> **Warning**: Please do not spam the repository with unnecessary PRs. Make sure to follow the project's [Code of Conduct](https://github.com/Omji-Kesharwani/Blood-Donation-Project/blob/main/CODE_OF_CONDUCT.md).
 
-- Go through the [CONTRIBUTING.md](https://github.com/Saurav-Pant/Blood-Donation-Project/blob/main/contributing.md) file, where all the guidelines have been mentioned that will guide you to make your contribution.
-- Do check out the [project issue tracker](https://github.com/Saurav-Pant/Blood-Donation-Project/issues) section.
+- Go through the [CONTRIBUTING.md](https://github.com/Omji-Kesharwani/Blood-Donation-Project/blob/main/contributing.md) file, where all the guidelines have been mentioned that will guide you to make your contribution.
+- Do check out the [project issue tracker](https://github.com/Omji-Kesharwani/Blood-Donation-Project/issues) section.
 
 **Please give it a star to support this open source project.**
 
 
-## 🤝 Our Contributors
 
-<details>
-  <summary>Contributors</summary>
-    <div>
-      <a href="https://github.com/Saurav-Pant/Blood-Donation-Project/graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=Saurav-Pant/Blood-Donation-Project"/>
-      </a>
-    </div>
-</details>
 
 Thank you for your interest in contributing to our project! We appreciate any contributions, whether it's bug fixes, new features, or documentation improvements.
 

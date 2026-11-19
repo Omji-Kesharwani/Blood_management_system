@@ -19,6 +19,12 @@ model Donor {
   state      String
   city       String
   gender     String
+  // New fields for intelligent matching and availability
+  latitude        Float?
+  longitude       Float?
+  lastDonation    DateTime?
+  available       Boolean @default(true)
+  role            String   @default("donor") // 'donor' | 'recipient' | 'admin'
 }
 
 model DonorOrg {
@@ -29,4 +35,35 @@ model DonorOrg {
   OrganisationAddress String
   OrganisationState   String
   OrganisationCity    String
+}
+
+// Track SOS/emergency requests from recipients
+model RecipientRequest {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  recipientName String
+  recipientPhone String
+  recipientEmail String?
+  bloodGroup     String
+  message        String?
+  latitude       Float
+  longitude      Float
+  radiusKm       Float   @default(10)
+  status         String  @default("active") // 'active' | 'fulfilled' | 'cancelled'
+  createdAt      DateTime @default(now())
+}
+
+// Optional: blood bank stock for live map
+model BloodBank {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  phone     String?
+  email     String?
+  address   String
+  state     String
+  city      String
+  latitude  Float?
+  longitude Float?
+  // Store stock as JSON, e.g., { "A+": 10, "O-": 3 }
+  stock     Json?
+  updatedAt DateTime @updatedAt
 }
